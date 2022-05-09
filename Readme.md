@@ -1,8 +1,7 @@
 <h2 align="center">Marcos Carrera</h2>
 <p align="center">Hi 👋</p>
 
-|<br>
-|<h2>My stack </h2>
+<h2>My stack </h2>
 
 - Backend Frameworks: Nestjs, Express, Django
 - Frontend Frameworks: Vue and React
