@@ -1,91 +1,73 @@
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from './page.module.css'
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import clsx from "clsx";
+import { Caveat, Roboto } from "@next/font/google";
+import { BsGithub, BsLinkedin, BsInstagram, BsTwitter } from "react-icons/bs";
+import { MdEmail } from "react-icons/md";
 
-const inter = Inter({ subsets: ['latin'] })
+import profilePic from "../public/profile.jpeg";
+
+const caveat = Caveat({ subsets: ["latin"] });
+const roboto = Roboto({ subsets: ["latin"], weight: "300" });
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.jsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="flex flex-col items-center sm:w-8/12 md:w-6/12 lg:w-4/12 mx-auto">
+      <Image
+        alt="Profile Picture"
+        height={130}
+        width={130}
+        src={profilePic}
+        className="rounded-full mx-auto"
+        priority
+      />
+      <p className={clsx(caveat.className, "text-5xl mt-5")}>Marcos Carrera</p>
+      <p className={clsx(roboto.className, "text-md")}>
+        FullStack Software Developer
+      </p>
+      <div className="flex w-full mt-10 justify-between">
+        <Social>
+          <BsGithub href="https://github.com/rcmarc" />
+          <BsLinkedin href="https://www.linkedin.com/in/marcoscarrera97" />
+          <BsInstagram href="https://www.instagram.com/marcoscarrera_97" />
+          <BsTwitter href="https://twitter.com/MarcosCarrera97" />
+        </Social>
+      </div>
+      <Link
+        className="mt-16 bg-sky-600 border-2 border-transparent transition-all hover:border-slate-300 px-6 py-3 rounded-lg font-medium hover:bg-sky-700"
+        href="https://drive.google.com/file/d/1dQbyAFsU_iA6mt9hR1A-DHfcXl1eescX/view?usp=share_link"
+        target="_blank"
+      >
+        See my CV
+      </Link>
+      <div className="relative mt-32 w-full">
+        <div className="absolute right-0 h-12 w-12 rounded-full group transition-colors hover:border-sky-500 hover:bg-gray-900 bg-slate-700 border-2">
+          <div className="absolute -top-12 min-w-max px-2 py-1 rounded-xl -left-4 hidden group-hover:block transition-all  bg-gray-900">
+            <p>Mail me</p>
+          </div>
+          <Link href="mailto://ramoscarrer@gmail.com">
+            <MdEmail className="absolute text-white transition-colors group-hover:text-sky-500 top-2 h-7 w-7 left-2" />
+          </Link>
         </div>
       </div>
+    </div>
+  );
+}
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+function Social({ children }) {
+  return children.map((child, index) => (
+    <Link
+      href={child.props.href}
+      target="_blank"
+      key={index}
+      className="rounded-md w-8 h-8 relative hover:bg-slate-700 transition-all cursor-pointer duration-150"
+    >
+      {React.createElement(child.type, {
+        className: "absolute top-1 left-1",
+        size: 24,
+        ...child.props,
+      })}
+    </Link>
+  ));
 }
