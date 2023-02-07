@@ -46,7 +46,7 @@ export default function Home() {
           <div className="absolute -top-12 min-w-max px-2 py-1 rounded-xl -left-4 hidden group-hover:block transition-all  bg-gray-900">
             <p>Mail me</p>
           </div>
-          <Link href="mailto://ramoscarrer@gmail.com">
+          <Link href="mailto:ramoscarrer@gmail.com">
             <MdEmail className="absolute text-white transition-colors group-hover:text-sky-500 top-2 h-7 w-7 left-2" />
           </Link>
         </div>
