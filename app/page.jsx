@@ -36,7 +36,7 @@ export default function Home() {
       </div>
       <Link
         className="mt-16 bg-sky-600 border-2 border-transparent transition-all hover:border-slate-300 px-6 py-3 rounded-lg font-medium hover:bg-sky-700"
-        href="https://drive.google.com/file/d/1dQbyAFsU_iA6mt9hR1A-DHfcXl1eescX/view?usp=share_link"
+        href="https://docs.google.com/document/d/1_jaI9PGPGb25Vax8q6NcJmQ7pLD8M97U2an58QWOB20/edit?usp=sharing"
         target="_blank"
       >
         See my CV
