@@ -24,7 +24,7 @@ export default function Home() {
       />
       <p className={clsx(caveat.className, "text-5xl mt-5")}>Marcos Carrera</p>
       <p className={clsx(roboto.className, "text-md")}>
-        FullStack Software Developer
+        Frontend Software Developer
       </p>
       <div className="flex w-full mt-10 justify-between">
         <Social>
